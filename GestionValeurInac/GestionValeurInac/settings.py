@@ -15,7 +15,6 @@ from pathlib import Path
 import environ
 import dj_database_url
 
-PORT = os.environ.get('PORT', 8000) # Définir un port par défaut si la variable n'est pas définie
 
 ###
 
@@ -79,8 +78,8 @@ WSGI_APPLICATION = 'GestionValeurInac.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-"""
-DATABASES = {
+
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
@@ -91,7 +90,7 @@ DATABASES = {
 env = environ.Env()
 environ.Env.read_env()  # Lire le fichier .env
 DATABASES = {
-    'default': dj_database_url.parse(env('postgresql://gvi_user:lvdVPmCUHTgTXyGctc7RdXLvrUjcCHCQ@dpg-cqo1ua8gph6c73b2aon0-a.oregon-postgres.render.com/gvi'))
+    'default': dj_database_url.parse(env('DATABASE_URL'))
 
     }
 
