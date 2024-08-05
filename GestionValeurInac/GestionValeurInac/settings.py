@@ -15,6 +15,9 @@ from pathlib import Path
 import environ
 import dj_database_url
 
+PORT = os.getenv('PORT', '8000')  # Définir un port par défaut si la variable n'est pas définie
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
